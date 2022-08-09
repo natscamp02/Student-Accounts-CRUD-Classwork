@@ -1,0 +1,26 @@
+<div class="pt-20">
+    <div class="container" *ngIf="account; else missing">
+        <h1>{{account.studentID.name}}'s Account</h1>
+
+        <div>
+            <p>Account #: {{account.accountNum}}</p>
+            <p>Bank: {{account.bank}}</p>
+            <p>Branch: {{account.branch}}</p>
+            <p>Account Type: {{account.accountType}}</p>
+            <p>Status: {{account.status}}</p>
+        </div>
+
+        <div class="actions">
+            <button [routerLink]="['/accounts', 'edit', account._id]">(Edit)</button>
+            <button (click)="deleteAccountInfo()">(Delete)</button>
+        </div>
+    </div>
+
+    <ng-template #missing>
+        <div class="container">
+            <h1>No account found</h1>
+            <p>No account information found for this student.</p>
+            <a routerLink="/accounts/add" [queryParams]="{ student_id: student_id }">Add Account</a>
+        </div>
+    </ng-template>
+</div>

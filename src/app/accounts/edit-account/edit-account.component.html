@@ -1,0 +1,36 @@
+<div class="pt-24">
+    <h1>Edit an account</h1>
+
+    <form #addForm="ngForm" (submit)="addForm.valid && onSubmit()">
+        <div>
+            <label for="accountNum">Account #</label>
+            <input type="number" name="accountNum" id="accountNum" [(ngModel)]="data.accountNum">
+        </div>
+        <div>
+            <label for="bank">Bank</label>
+            <input type="text" name="bank" id="bank" [(ngModel)]="data.bank">
+        </div>
+        <div>
+            <label for="branch">Branch</label>
+            <input type="text" name="branch" id="branch" [(ngModel)]="data.branch">
+        </div>
+
+        <div>
+            <label for="accountType">Account Type</label>
+            <select name="accountType" id="accountType" [(ngModel)]="data.accountType">
+                <option value="" selected disabled hidden>-- Select an account type --</option>
+                <option value="savings">Savings</option>
+                <option value="chequing">Chequing</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="status">
+                <input type="checkbox" name="status" id="status" [(ngModel)]="data.status">
+                Active
+            </label>
+        </div>
+
+        <button type="submit">Save Information</button>
+    </form>
+</div>
