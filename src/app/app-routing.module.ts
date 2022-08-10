@@ -13,7 +13,13 @@ const routes: Routes = [
         children: [
             { path: 'add', component: AddStudentComponent },
             { path: 'edit/:id', component: EditStudentComponent },
-            { path: '', component: StudentsComponent },
+            {
+                path: '',
+                component: StudentsComponent,
+                children: [
+                    { path: ':student_id/account', component: AccountsComponent },
+                ]
+            },
         ]
     },
     {
@@ -21,9 +27,9 @@ const routes: Routes = [
         children: [
             { path: 'add', component: AddAccountComponent },
             { path: 'edit/:id', component: EditAccountComponent },
-            { path: ':student_id', component: AccountsComponent },
         ]
     },
+
     { path: '', redirectTo: '/students', pathMatch: 'full' },
     { path: '**', redirectTo: '/' }
 ];

@@ -1,5 +1,6 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { AccountsService } from '../accounts.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class AddAccountComponent implements OnInit {
         status: true,
     };
 
-    constructor(private accountsService: AccountsService, private router: Router, private route: ActivatedRoute) { }
+    constructor(private accountsService: AccountsService, private route: ActivatedRoute, private location: Location) { }
 
     ngOnInit(): void {
         this.data.studentID = this.route.snapshot.queryParams['student_id'];
@@ -27,7 +28,7 @@ export class AddAccountComponent implements OnInit {
         this.data.status = this.data.status ? 'active' : 'inactive';
 
         this.accountsService.createAccount(this.data).subscribe((res) => {
-            if (res.status === 'success') this.router.navigate(['/accounts', this.data.studentID]);
+            if (res.status === 'success') this.location.back();
         })
     }
 

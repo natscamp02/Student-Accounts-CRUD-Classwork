@@ -1,35 +1,33 @@
 <div class="bg-[url('/assets/bg2.svg')] bg-no-repeat bg-cover h-screen grid place-items-center">
     <form #addForm="ngForm" (submit)="addForm.valid && addNewStudent()"
-        class="w-full max-w-sm mx-auto shadow-lg py-6 px-8">
-        <h2 class="text-center text-2xl mb-8 uppercase">Add New Student</h2>
+        class="w-full max-w-sm px-8 py-6 mx-auto shadow-lg">
+        <h2 class="mb-8 text-2xl text-center uppercase">Add New Student</h2>
 
-        <div class="grid gap-1 mb-6">
-            <label for="name" class="text-sm text-gray-600">Student Name</label>
+        <div class="form-control">
+            <label for="name">Student Name</label>
             <input type="text" name="name" id="name" [(ngModel)]="student.name" class="w-full" required>
         </div>
 
-        <div class="grid gap-1 mb-6">
-            <label for="email" class="text-sm text-gray-600">Email Address</label>
+        <div class="form-control">
+            <label for="email">Email Address</label>
             <input type="email" name="email" id="email" [(ngModel)]="student.email" class="w-full" required>
         </div>
 
-        <div class="grid gap-1 mb-6">
-            <label for="cohort" class="text-sm text-gray-600">Cohort</label>
+        <div class="form-control">
+            <label for="cohort">Cohort</label>
             <input type="text" name="cohort" id="cohort" [(ngModel)]="student.cohort" class="w-full" required>
         </div>
 
-        <div class="grid gap-1 mb-8">
-            <label for="phoneNumber" class="text-sm text-gray-600">Contact Number</label>
+        <div class="form-control">
+            <label for="phoneNumber">Contact Number</label>
             <input type="tel" name="phoneNumber" id="phoneNumber" [(ngModel)]="student.phoneNumber" class="w-full"
                 required>
         </div>
 
 
         <div class="flex items-center justify-end gap-4">
-            <button type="button" routerLink="/students"
-                class="inline-flex py-1.5 px-3 hover:bg-gray-100 transition">Cancel</button>
-            <button type="submit"
-                class="inline-flex py-1.5 px-3 text-white bg-blue-500 hover:bg-blue-600 transition">Add
+            <button type="button" routerLink="/students" class="btn hover:text-red-500">Cancel</button>
+            <button type="submit" class="btn btn-primary">Add
                 Student</button>
         </div>
     </form>

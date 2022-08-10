@@ -1,36 +1,42 @@
-<div class="pt-24">
-    <h1>Add an account</h1>
+<div class="bg-no-repeat bg-cover bg-bottom bg-[url('/assets/bg3.svg')] grid h-screen place-items-center">
 
-    <form #addForm="ngForm" (submit)="addForm.valid && onSubmit()">
-        <div>
-            <label for="accountNum">Account #</label>
-            <input type="number" name="accountNum" id="accountNum" [(ngModel)]="data.accountNum">
-        </div>
-        <div>
-            <label for="bank">Bank</label>
-            <input type="text" name="bank" id="bank" [(ngModel)]="data.bank">
-        </div>
-        <div>
-            <label for="branch">Branch</label>
-            <input type="text" name="branch" id="branch" [(ngModel)]="data.branch">
-        </div>
+    <div class="p-12 bg-white shadow-lg min-w-[50%]">
+        <h1 class="mb-6 text-center heading">Add an account</h1>
 
-        <div>
-            <label for="accountType">Account Type</label>
-            <select name="accountType" id="accountType" [(ngModel)]="data.accountType">
-                <option value="" selected disabled hidden>-- Select an account type --</option>
-                <option value="savings">Savings</option>
-                <option value="chequing">Chequing</option>
-            </select>
-        </div>
+        <form class="max-w-sm mx-auto" #addForm="ngForm" (submit)="addForm.valid && onSubmit()">
+            <div class="form-control">
+                <label for="accountNum">Account #</label>
+                <input type="number" name="accountNum" id="accountNum" [(ngModel)]="data.accountNum" required>
+            </div>
+            <div class="form-control">
+                <label for="bank">Bank</label>
+                <input type="text" name="bank" id="bank" [(ngModel)]="data.bank" required>
+            </div>
+            <div class="form-control">
+                <label for="branch">Branch</label>
+                <input type="text" name="branch" id="branch" [(ngModel)]="data.branch" required>
+            </div>
 
-        <div>
-            <label for="status">
-                <input type="checkbox" name="status" id="status" [(ngModel)]="data.status">
-                Active
-            </label>
-        </div>
+            <div class="form-control">
+                <label for="accountType">Account Type</label>
+                <select name="accountType" id="accountType" [(ngModel)]="data.accountType" required>
+                    <option value="" selected disabled hidden>-- Select an account type --</option>
+                    <option value="savings">Savings</option>
+                    <option value="chequing">Chequing</option>
+                </select>
+            </div>
 
-        <button type="submit">Add account</button>
-    </form>
+            <div class="form-control">
+                <label class="flex items-center gap-2" for="status">
+                    <input type="checkbox" name="status" id="status" [(ngModel)]="data.status">
+                    Active
+                </label>
+            </div>
+
+            <div class="flex items-center justify-end gap-4">
+                <button class="btn hover:text-red-500" type="reset" routerLink="/students">Cancel</button>
+                <button class="btn btn-primary" type="submit">Add account</button>
+            </div>
+        </form>
+    </div>
 </div>
